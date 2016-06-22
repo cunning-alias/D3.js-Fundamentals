@@ -170,6 +170,15 @@ window.onload = function runD3code() {
 				"fill": function(d) {return salesKPI(d.sales);}
 			});
 
+	//add lables
+	var lables = svg.selectAll("text")
+	.data(monthlySales)
+	.enter()
+	.append("text")
+		.text(function(d){
+			return showMinMax(monthlySales, 'sales', d.sales, 'minmax');
+		})
+
 }
 		
 
